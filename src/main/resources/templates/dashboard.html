@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: headerfiles">
+<meta charset="utf8">
+<title>DashBoard</title>
+
+</head>
+<body>
+ 		 <div id="header" th:replace="fragments/header :: sidebar"></div>
+ 		 		  <div style="margin-left:18.5%;" class="mt-3">
+ 		 				<div class="container mt-2">
+				    <h2>DashBoard</h2>
+				    <hr/>
+						<div class="row">
+						<div class="col-lg-3 col-12">
+								<div class="small-box bg-warning">
+								<div class="inner">
+								<h3 th:text="${empleados}"></h3>
+								<p>Total de empleados</p>
+								</div>
+								<div class="icon">
+									<i class="fas fa-users-cog"></i>
+								</div>
+								<a th:href="@{/empleado}"class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+								</div>
+								</div>
+						</div>
+						
+						<div class="col-lg-3 col-6">
+								
+								<div class="small-box bg-secondary">
+								<div class="inner">
+								<h3 th:text="${clientes}"></h3>
+								<p>Total de Clientes</p>
+								</div>
+								<div class="icon">
+									<i class="fas fa-user"></i>
+								</div>
+								<a th:href="@{/cliente}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+								</div>
+								</div>
+						</div>
+				 
+					</div>
+			
+			</div>
+ 		 		
+ 		 
+<!-- jQuery -->
+<script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/dist/js/adminlte.min.js}"></script>
+</body>
+</html>

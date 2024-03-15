@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: headerfiles">
+<meta charset="utf8">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<div id="header" th:replace="fragments/header :: sidebar"></div>
+	<div style="margin-left: 18.5%;" class="mt-3">
+		<div class="container mt-2">
+			<h2>Mis proveedores</h2>
+
+			<div class="card-tools">
+				<div class="input-group input-group-sm" style="width: 300px;">
+					<a class="mr-2 btn btn-danger" th:href="@{producto/pdf}">PDF<i
+						class="fas fa-file-pdf fa-lg ml-2"></i></a> <input type="text"
+						name="table_search" class="form-control float-right"
+						placeholder="Search">
+
+					<div class="input-group-append">
+						<button type="submit" class="btn btn-default">
+							<i class="fas fa-search"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.card-header -->
+		<div class="card-body table-responsive p-0">
+			<table class="table table-hover text-nowrap">
+				<thead>
+					<tr>
+						<th>Dirección</th>
+						<th>Nombre completo</th>
+						<th>celular</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="proveedor: ${proveedores}">
+						<td th:text="${proveedor.address}"></td>
+						<td th:text="${proveedor.name}"></td>
+						<td th:text="${proveedor.phone}"></td>
+						<td><a th:href="@{/proveedor/{id}(id=${proveedor.id})}"><i
+								class="fas fa-user-edit" style="color: #B197FC;"></i></a> <a
+							th:href="@{/proveedor/delete/{id}(id=${proveedor.id})}"
+							onclick="return confirm('¿Estás seguro de eliminar este Empleado?')">
+								<i class="fas fa-trash" style="color: #ba1212;"></i>
+						</a></td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+		<!-- /.card-body -->
+
+		<!-- /.card -->
+	</div>
+
+
+
+
+	<!-- jQuery -->
+	<script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+	<!-- Bootstrap 4 -->
+	<script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<!-- AdminLTE App -->
+	<script th:src="@{/dist/js/adminlte.min.js}"></script>
+</body>
+</html>

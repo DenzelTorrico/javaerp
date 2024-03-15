@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: headerfiles">
+<meta charset="utf8">
+<title>Insert title here</title>
+
+</head>
+<body>
+ 		 <div id="header" th:replace="fragments/header :: sidebar"></div>
+ 		 		  <div style="margin-left:18.5%;" class="mt-3">
+ 		 				<div class="container mt-2">
+				    <h2>Configuración del perfil</h2>
+				
+				    <!-- Formulario de Cliente -->
+				  	 <form th:action="@{/perfil}" th:method="post" enctype="multipart/form-data">
+				  	 			  <label class="form-label">email</label>
+						    <input type="text" name="email" id="email"  />
+				  	 
+						    <label class="form-label">Imagen</label>
+						    <input type="file" name="imagen" id="imagen" multiple />
+						    <button type="submit">Enviar</button>
+						</form>
+
+					</div>
+			
+			</div>
+ 		 		
+ 		 
+<!-- jQuery -->
+<script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/dist/js/adminlte.min.js}"></script>
+</body>
+</html>
